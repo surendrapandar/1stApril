@@ -1,0 +1,397 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Find your perfect IT partner with Namaste Dating. Complete the form and let us match you with your ideal IT soulmate.">
+    <meta name="keywords" content="IT dating, IT partner, soulmate, coding, developers, matchmaker">
+    <meta name="author" content="Namaste Dating">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Namaste Dating - IT Couple Match Form">
+    <meta property="og:description" content="Find your perfect IT partner with Namaste Dating. Complete the form and let us match you with your ideal IT soulmate.">
+    <meta property="og:image" content="images/namaste-dating.png">
+    <meta property="og:url" content="https://preprod.namastedev.com/dating">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Namaste Dating - IT Couple Match Form">
+    <meta name="twitter:description" content="Find your perfect IT partner with Namaste Dating. Complete the form and let us match you with your ideal IT soulmate.">
+    <meta name="twitter:image" content="https://namastedevprod.s3.ap-south-1.amazonaws.com/assets/namaste-dating.png">
+
+    <title>Prank</title>
+    <link rel="icon" type="image/png" href="images/icon.png">
+    <!-- Tailwind CSS CDN -->
+    <link href="css/tailwind.min.css" rel="stylesheet">
+
+    <link href="css/full.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles -->
+    <style>
+      body {
+        min-height: 100vh;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      @media only screen and (min-width: 768px) {
+        .background-img {
+          /* background-image: url("./success-back.png"); */
+          background-image: url("images/bg-1.png");
+          background-position: unset;
+          /* background-image: linear-gradient(to right bottom, #bed16b, #dcc468, #f1b771, #fdac83, #ffa498, #ffa3b6, #f8a8d4, #e3b2ee, #bbc7ff, #81ddff, #4eeeff, #5ffbf1); */
+          /* background-image: linear-gradient(to bottom, #e9f7af, #f7e4a0, #ffd29b, #ffc09d, #ffb0a4, #ffadbc, #f8afd5, #e4b5ed, #c2cbff, #97e0ff, #7df2ff, #8cfff7); */
+          /* background-image: linear-gradient(to bottom, #aff7b2, #c1f5ad, #d1f4ab, #dff2ab, #ecf0ad, #e8f2b0, #e4f3b4, #e0f5b8, #cbf9c2, #b4fcd1, #9ffee3, #8cfff7); */
+          /* background-image: linear-gradient(to right bottom, #aff7e0, #baf7d4, #c7f6c9, #d6f4c0, #e5f2b8, #f0ecb4, #f8e5b2, #ffdfb3, #ffd5b9, #ffcec8, #ffc9db, #ffc9ee); */
+          /* background: linear-gradient(90deg, #fa76b8, #ff6347); */
+        }
+      }
+
+      .form-container {
+        /* background-color: rgba(255, 255, 255, 0.85); */
+        background-color: red;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        /* max-width: 500px; Limit width for better readability on large screens */
+        /* margin: auto;  Center the form */
+      }
+
+      .form-container h1 {
+        color: #333;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .form-container h3 {
+        font-weight: 600;
+      }
+
+      .form-container input[type="text"],
+      .form-container textarea,
+      .form-container select {
+        width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        font-size: 1rem;
+      }
+
+      .form-container input[type="text"]:focus,
+      .form-container textarea:focus,
+      .form-container select:focus {
+        outline: none;
+        border-color: rgb(229, 126, 60);
+      }
+
+      .form-container button {
+        /* background-color: rgb(229, 126, 60); */
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+        width: 100%; /* Ensure button takes full width */
+      }
+
+      .form-container button:hover {
+        background-color: white;
+        color: black;
+      }
+
+      /* Heart Animation */
+      .heart {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background-color: pink;
+        clip-path: polygon(
+          50% 0%,
+          100% 35%,
+          90% 100%,
+          50% 80%,
+          10% 100%,
+          0% 35%
+        );
+        animation: heart 1s ease-out infinite;
+      }
+
+      .video-container {
+        height: 30;
+      }
+
+      @keyframes heart {
+        0% {
+          transform: scale(1);
+        }
+        20% {
+          transform: scale(1.2);
+        }
+        40% {
+          transform: scale(1);
+        }
+        60% {
+          transform: scale(1.2);
+        }
+        80% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Loader styles */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column; /* Updated */
+        z-index: 1000;
+        opacity: 0; /* Initially hidden */
+        visibility: hidden; /* Initially hidden */
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .loader {
+        border: 8px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top: 8px solid #ffffff;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Random text styles */
+      #loading-text {
+        color: white;
+        margin-top: 10px;
+        font-size: 20px;
+      }
+
+      .love-theme {
+        /* background: linear-gradient(90deg, #ff69b4, #ff6347); */
+        /* background: linear-gradient(90deg, #fa76b8, #ff6347); */
+        /* You can adjust the gradient colors as needed */
+        /* Add any additional styling properties you require */
+        background-image: linear-gradient(
+          to right bottom,
+          #aff7e0,
+          #baf7d4,
+          #c7f6c9,
+          #d6f4c0,
+          #e5f2b8,
+          #f0ecb4,
+          #f8e5b2,
+          #ffdfb3,
+          #ffd5b9,
+          #ffcec8,
+          #ffc9db,
+          #ffc9ee
+        );
+      }
+
+      /* Responsive Styling */
+      @media (max-width: 768px) {
+        .form-container {
+          padding: 20px;
+        }
+        .form-container h1 {
+          font-size: 2rem;
+        }
+        .form-container button {
+          font-size: 1rem;
+        }
+        .form-container select,
+        .form-container input[type="text"] {
+          /* width: calc(100% - 30px); */
+          width: 100%;
+        }
+      }
+
+      input,
+      select {
+        appearance: none; /* Remove default styles */
+        -webkit-appearance: none; /* Remove default styles for Safari */
+        -moz-appearance: none; /* Remove default styles for Firefox */
+        /* background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.293 7.293a1 1 0 011.414 0L10 12.586l5.293-5.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>'); Add custom dropdown arrow */
+        /* background-repeat: no-repeat; */
+        /* background-position: right 10px top 50%; */
+        background-color: white;
+        color: black;
+        padding-right: 30px; /* Adjust for the arrow */
+      }
+
+      /* Ensure proper spacing for dropdown options */
+      select option {
+        padding: 10px;
+      }
+
+      #share-buttons i {
+        font-size: 30px;
+        margin: 10px;
+      }
+      .facebook {
+        color: #3b5998;
+      }
+      .twitter {
+        color: #55acee;
+      }
+      .linkedin {
+        color: #0077b5;
+      }
+      .reddit {
+        color: #cb2027;
+      }
+      .whatsapp {
+        color: #25d366;
+      }
+      .telegram {
+        color: #229ed9;
+      }
+      .facebook,
+      .twitter,
+      .linkedin,
+      .reddit,
+      .whatsapp,
+      .telegram {
+        opacity: 1;
+      }
+      .facebook:hover,
+      .twitter:hover,
+      .linkedin:hover,
+      .reddit:hover,
+      .whatsapp:hover,
+      .telegram:hover {
+        opacity: 0.7;
+      }
+
+      @media only screen and (max-width: 767px) {
+        .form-container {
+          margin: 0;
+        }
+      }
+    </style>
+
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-9QC55RR6LK"></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-9QC55RR6LK");
+    </script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <!-- <div class="navbar bg-base-100 !bg-white">
+      <div class="navbar-start"></div>
+      <div class="navbar-center">
+        <a href="https://namastedev.com" target="blank">
+          <img
+            className="object-contain h-auto w-[200px]"
+            src="https://namastedevprod.s3.ap-south-1.amazonaws.com/banner+and+logos/name.png"
+            alt="namasteDev"
+            width="200"
+            height="200"
+          />
+        </a>
+      </div>
+      <div class="navbar-end"></div>
+    </div> -->
+    <!-- Navbar End -->
+
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 px-3 background-img">
+      <div class="form-container bg-white rounded-lg shadow-md px-8 py-10 max-w-[800px] min-w-[400px] sm:min-w-[800px] mx-auto love-theme relative">
+        <img src="images/ribbon.png" alt="user" width="400" height="400" class="object-contain w-28 md:w-32 absolute top-0 left-0">
+        <h1 class="text-2xl font-semibold mb-5 text-center !text-black">
+          Ooopsss... 🤪
+        </h1>
+        <p class="text-center mb-8 !text-black text-center">
+          Hahaha, caught you in our April Fools Prank!!
+        </p>
+
+        <div class="container">
+          <div class="video-container flex justify-center mb-8">
+            <!-- <iframe src="https://www.youtube.com/embed/sTaEwwHOzjc?autoplay=1" title="Kyu nhi ho rahi padhai😂meme Alakh PandeySir|physics wallahAlakh Pandey #viral#Kyunhihorahipadhai" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+            <video controls="" autoplay="" loop="" width="640" height="360" class="rounded-3xl">
+              <source src="media/success.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div class="mx-auto p-6 rounded-md text-center">
+          <h2 class="text-2xl font-bold mb-4 !text-black">Happy April Fool! 🙏</h2>
+          <p class="text-lg mb-6 !text-black">
+            Did you seriously think that an AI algorithm will get your partner affairs?
+            <br>
+            C'mon, Go outside and find it by yourself, By the way if you think it's a good joke, please Do share with your Friends.?
+          </p>
+
+          <!-- <div class="flex justify-center my-3">
+            <a href="https://namastedev.com/learn" target="blank">
+              <button
+                type="submit"
+                class="btn btn-neutral text-white px-5 py-2 max-w-[300px] rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Upskill yourself 🚀
+              </button>
+            </a>
+          </div> -->
+        </div>
+
+        <div class="flex justify-center pb-4">
+          <img src="images/meme.jpeg" alt="meme" class="w-28 md:w-32 top-0 left-0">
+        </div>
+
+        <p class="text-center text-black my-2">Made with ♥️ by Jinil Patel & Surendra Pandar</p>
+      </div>
+    </div>
+
+    <script>
+      const link = encodeURI("https://youtu.be/c2gJMmGx4BI");
+      const msg = encodeURIComponent(
+        "Try out this new app, 'Namaste Dating' that will help you find your soulmate. Fill in your preferences and you will get the partner of your fantasies."
+      );
+      const title = encodeURIComponent(
+        "Namaste Dating - Find you soulmate now!"
+      );
+    </script>
+  
+
+</body></html>

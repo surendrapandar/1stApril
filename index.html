@@ -1,0 +1,449 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Find your soulmate with Namaste Dating. Fill in your preferences and let us match you with the partner of your fantasies.">
+    <meta name="keywords" content="Namaste Dating, dating, partner, girlfriend, boyfriend, soulmate, namaste javascript, namaste react, namaste frontend system design, akshay saini">
+    <meta name="author" content="Namaste Dating">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Namaste Dating">
+    <meta property="og:description" content="Find your soulmate with Namaste Dating. Fill in your preferences and let us match you with the partner of your fantasies.">
+    <meta property="og:image" content="images/namaste-dating.png">
+    <meta property="og:url" content="https://preprod.namastedev.com/dating">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Namaste Dating ">
+    <meta name="twitter:description" content="Find your soulmate with Namaste Dating. Fill in your preferences and let us match you with the partner of your fantasies.">
+    <meta name="twitter:image" content="https://namastedevprod.s3.ap-south-1.amazonaws.com/assets/namaste-dating.png">
+
+    <title>Find Your BF/GF Past Affairs</title>
+    <link rel="icon" type="image/png" href="images/icon.png">
+    <!-- Tailwind CSS CDN -->
+    <link href="css/tailwind.min.css" rel="stylesheet">
+
+    <link href="css/full.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles -->
+    <style>
+      body {
+        min-height: 100vh;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      @media only screen and (min-width: 768px) {
+        .background-img {
+          /* background-image: url("./bkgrnd.jpg");
+        background-size: cover;
+        background-position: center; */
+          /* background-image: linear-gradient(to right bottom, #bed16b, #dcc468, #f1b771, #fdac83, #ffa498, #ffa3b6, #f8a8d4, #e3b2ee, #bbc7ff, #81ddff, #4eeeff, #5ffbf1); */
+          /* background-image: linear-gradient(to bottom, #e9f7af, #f7e4a0, #ffd29b, #ffc09d, #ffb0a4, #ffadbc, #f8afd5, #e4b5ed, #c2cbff, #97e0ff, #7df2ff, #8cfff7); */
+          /* background-image: linear-gradient(to bottom, #aff7b2, #c1f5ad, #d1f4ab, #dff2ab, #ecf0ad, #e8f2b0, #e4f3b4, #e0f5b8, #cbf9c2, #b4fcd1, #9ffee3, #8cfff7); */
+          /* background-image: linear-gradient(to right bottom, #aff7e0, #baf7d4, #c7f6c9, #d6f4c0, #e5f2b8, #f0ecb4, #f8e5b2, #ffdfb3, #ffd5b9, #ffcec8, #ffc9db, #ffc9ee); */
+          background-image: linear-gradient(
+            to right bottom,
+            #aff7e0,
+            #baf7d4,
+            #c7f6c9,
+            #d6f4c0,
+            #e5f2b8,
+            #f0ecb4,
+            #f8e5b2,
+            #ffdfb3,
+            #ffd5b9,
+            #ffcec8,
+            #ffc9db,
+            #ffc9ee
+          );
+        }
+      }
+
+      .form-container {
+        /* background-color: rgba(255, 255, 255, 0.85); */
+        background-color: red;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        /* max-width: 500px; Limit width for better readability on large screens */
+        /* margin: auto;  Center the form */
+      }
+
+      .form-container h1 {
+        color: #333;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .form-container h3 {
+        font-weight: 600;
+      }
+
+      .form-container input[type="text"],
+      .form-container input[type="email"],
+      .form-container textarea,
+      .form-container select {
+        width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        font-size: 1rem;
+      }
+
+      .form-container input[type="text"]:focus,
+      .form-container textarea:focus,
+      .form-container select:focus {
+        outline: none;
+        border-color: rgb(229, 126, 60);
+      }
+
+      .form-container button {
+        /* background-color: rgb(229, 126, 60); */
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+        width: 100%; /* Ensure button takes full width */
+      }
+
+      .form-container button:hover {
+        background-color: white;
+        color: black;
+      }
+
+      /* Heart Animation */
+      .heart {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background-color: pink;
+        clip-path: polygon(
+          50% 0%,
+          100% 35%,
+          90% 100%,
+          50% 80%,
+          10% 100%,
+          0% 35%
+        );
+        animation: heart 1s ease-out infinite;
+      }
+
+      @keyframes heart {
+        0% {
+          transform: scale(1);
+        }
+        20% {
+          transform: scale(1.2);
+        }
+        40% {
+          transform: scale(1);
+        }
+        60% {
+          transform: scale(1.2);
+        }
+        80% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Loader styles */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column; /* Updated */
+        z-index: 1000;
+        opacity: 0; /* Initially hidden */
+        visibility: hidden; /* Initially hidden */
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .loader {
+        border: 8px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top: 8px solid #ffffff;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Random text styles */
+      #loading-text {
+        color: white;
+        margin-top: 10px;
+        font-size: 20px;
+      }
+
+      .love-theme {
+        /* background: linear-gradient(90deg, #ff69b4, #ff6347); */
+        background: linear-gradient(90deg, #fa76b8, #ff6347);
+        /* You can adjust the gradient colors as needed */
+        /* Add any additional styling properties you require */
+      }
+
+      /* Responsive Styling */
+      @media (max-width: 768px) {
+        .form-container {
+          padding: 20px;
+        }
+        .form-container h1 {
+          font-size: 2rem;
+        }
+        .form-container button {
+          font-size: 1rem;
+        }
+        .form-container select,
+        .form-container input[type="text"] {
+          /* width: calc(100% - 30px); */
+          width: 100%;
+        }
+      }
+
+      input,
+      select {
+        appearance: none; /* Remove default styles */
+        -webkit-appearance: none; /* Remove default styles for Safari */
+        -moz-appearance: none; /* Remove default styles for Firefox */
+        /* background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.293 7.293a1 1 0 011.414 0L10 12.586l5.293-5.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>'); Add custom dropdown arrow */
+        /* background-repeat: no-repeat; */
+        /* background-position: right 10px top 50%; */
+        background-color: white;
+        color: black;
+        padding-right: 30px; /* Adjust for the arrow */
+      }
+
+      /* Ensure proper spacing for dropdown options */
+      select option {
+        padding: 10px;
+      }
+    </style>
+
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-9QC55RR6LK"></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-9QC55RR6LK");
+    </script>
+  </head>
+
+  <body>
+    <div class="overlay" id="overlay">
+      <div class="loader"></div>
+      <p class="text-white mt-2 px-5 text-center" id="loading-text">
+        Loading...
+      </p>
+    </div>
+
+    <!-- Navbar -->
+    <!-- <div class="navbar bg-base-100 !bg-white">
+      <div class="navbar-start"></div>
+      <div class="navbar-center">
+        <a href="https://namastedev.com" target="blank">
+          <img
+            className="object-contain h-auto w-[200px]"
+            src="https://namastedevprod.s3.ap-south-1.amazonaws.com/banner+and+logos/name.png"
+            alt="namasteDev"
+            width="200"
+            height="200"
+          />
+        </a>
+      </div>
+      <div class="navbar-end"></div>
+    </div> -->
+    <!-- Navbar End -->
+
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 px-3 background-img">
+      <div class="form-container bg-white rounded-lg shadow-md px-8 py-10 md:my-5 max-w-[800px] min-w-[400px] sm:min-w-[800px] mx-auto love-theme relative">
+        <img src="images/ribbon.png" alt="user" width="400" height="400" class="object-contain w-28 md:w-32 absolute top-0 left-0">
+        <!-- <img
+          src="https://namastedevprod.s3.ap-south-1.amazonaws.com/dating/white-ribbon.png"
+          alt="user"
+          width="400"
+          height="400"
+          class="object-contain w-28 md:w-32 absolute top-[10%] left-[50%] transform -translate-x-10 -translate-y-10"
+        />
+        <img
+          src="https://namastedevprod.s3.ap-south-1.amazonaws.com/dating/white-ribbon.png"
+          alt="user"
+          width="400"
+          height="400"
+          class="object-contain w-28 md:w-32 absolute top-[25%] left-[80%] transform -translate-x-10 -translate-y-10"
+        />
+        <img
+          src="https://namastedevprod.s3.ap-south-1.amazonaws.com/dating/white-ribbon.png"
+          alt="user"
+          width="400"
+          height="400"
+          class="object-contain w-28 md:w-32 absolute top-[37%] left-[10%] transform -translate-x-10 -translate-y-10"
+        /> -->
+        <img>
+        <div class="w-full text-center flex justify-center">
+          <!-- <img src="images/namaste-dating-logo.png" alt="Namaste Dating Logo" class="text-center h-18 md:h-36"> -->
+        <h1 class="text-center h-18 md:h-36">Check Your boyfriend & <br> girlfriend  past affairs  Using AI</h1>
+        </div>
+
+        <p class="text-black  text-center mb-8 text-xs italic">
+          Most poweful AI to find your Past girlfriend & boyfriend affairs, we use AI and all internet data to find out with 100%  accuracy 😉
+        </p>
+        <p class="text-black  text-center mb-8 text-xs italic">
+          Made By Jinil Patel & Surendra Pandar
+        </p>
+        <form action="" method="POST" class="space-y-4" name="contact-form">
+          <!-- Form inputs go here -->
+
+          <div class="flex flex-wrap -mx-2 pt-6">
+            <div class="w-full md:w-1/2 px-2 mb-2">
+              <label for="text" class="text-sm font-medium block mb-2 text-black">Name of your boyfriend/girlfriend</label>
+              <input type="text" id="text" name="email" placeholder="e.g. Jinil Patel" required="" class="appearance-none rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-2 w-full">
+            </div>
+
+            <div class="w-full md:w-1/2 px-2 mb-2">
+              <label for="looking_for" class="text-sm font-medium block mb-2 text-black">
+                Looking for ?
+              </label>
+              <select id="looking_for" name="looking_for" required="" class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-2 !w-[100%]">
+                <option value="" disabled="" selected="">
+                  Choose the gender of your BF/GF
+                </option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="any">Any</option>
+              </select>
+            </div>
+          </div>
+
+          <h2 class="text-2xl mb-4 text-black !font-bold text-center">
+            Your BF/GF Basic Details
+          </h2>
+
+          <div class="space-y-4">
+            <div class="flex flex-wrap -mx-2">
+              <div class="w-full md:w-1/2 px-2 mb-2">
+                <label for="theme_preference" class="text-sm font-medium block mb-2 text-black">
+                  Age of Your BF/GF:
+                </label>
+                <select id="theme_preference" name="theme_preference" required="" class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-2">
+                  <option value="" disabled="" selected="">
+                    Select Age
+                  </option>
+                  <option value="dark">20+</option>
+                  <option value="light">Below 20</option>
+                </select>
+              </div>
+              <div class="w-full md:w-1/2 px-2 mb-2">
+                <label for="bug_reaction" class="text-sm font-medium block mb-2 text-black">
+                  Is Your BF/GF have curretly Best friend:
+                </label>
+                <select id="bug_reaction" name="bug_reaction" required="" class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-2">
+                  <option value="" disabled="" selected="">
+                    Select
+                  </option>
+                  <option value="calm">Yes</option>
+                  <option value="panic">
+                    Of course No!
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap -mx-2">
+              <div class="w-full md:w-1/2 px-2 mb-2">
+                <label for="merge_conflict_handling" class="text-sm font-medium block mb-2 text-black">Your BF/GF occupation </label>
+                <select id="merge_conflict_handling" name="merge_conflict_handling" required="" class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-2">
+                  <option value="" disabled="" selected="">Select</option>
+                  <option value="peace">
+                    Student
+                  </option>
+                  <option value="force">
+                    Working professional 
+                  </option>
+                </select>
+              </div>
+              <div class="w-full md:w-1/2 px-2 mb-2">
+                <label for="music_preference" class="text-sm font-medium block mb-2 text-black">Your BF/GF Instagram/facebook/other username</label>
+                <input class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-2" placeholder="username eg. surendra_pandar" type="text">
+              </div>
+            </div>
+
+            <div class="flex flex-wrap -mx-2">
+              <div class="w-full md:w-1/2 px-2 mb-2">
+                <label for="first_date_language" class="text-sm font-medium block mb-2 text-black">Where she/he spend most of the time
+                </label>
+                <select id="first_date_language" name="first_date_language" required="" class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-2">
+                  <option value="" disabled="" selected="">
+                    Select
+                  </option>
+                  <option value="python">
+                    Online - with devices
+                  </option>
+                  <option value="javascript">
+                    offline - with friend and family
+                  </option>
+                </select>
+              </div>
+              <div class="w-full md:w-1/2 px-2 mb-2">
+                <label for="motivation_technique" class="text-sm font-medium block mb-2 text-black">Waiting time of your message/call</label>
+                <select id="motivation_technique" name="motivation_technique" required="" class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:ring-2">
+                  <option value="" disabled="" selected="">
+                    Select
+                  </option>
+                  <option value="breaks">
+                    Less than 1 hour 
+                  </option>
+                  <option value="pizza">
+                    1 + hour 
+                  </option>
+                </select>
+              </div>
+            </div>
+
+          <div class="flex justify-center mt-8">
+            <button type="submit" class="btn btn-neutral text-white px-5 py-2 max-w-[300px] rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Find My Match ❤️
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  
+
+</body></html>
